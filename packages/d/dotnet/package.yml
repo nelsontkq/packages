@@ -1,8 +1,8 @@
 name       : dotnet
-version    : 8.0.4
-release    : 5
+version    : 8.0.5
+release    : 6
 source     :
-    - https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.4.tar.gz : 182cea2bfdca19bc13453c27c191540812109e9f1fd1b8ee52b0cd4c28215f24
+    - https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.5.tar.gz : 1eede6abe709a5b4ba433beddcf9917b88916d6243b8c51a3664654bab6ea61c
 homepage   : https://dot.net
 license    : MIT
 component  : programming.dotnet
@@ -13,7 +13,7 @@ summary    :
 description: .NET is a free, cross-platform, open-source developer platform for building many kinds of applications. It can run programs written in multiple languages, with C# being the most popular.
 replaces   :
     - fsharp
-networking : yes
+networking : no
 libsplit   : no
 clang      : yes
 strip      : no
@@ -36,6 +36,9 @@ rundeps    :
 setup      : |
     %patch -p1 -i $pkgfiles/1005-default-opt-out-of-telemetry.patch
 build      : |
+    # disable stack protector
+    CFLAGS="${CFLAGS//-fstack-protector-strong/-fno-stack-protector}"
+    CXXFLAGS="${CXXFLAGS//-fstack-protector-strong/-fno-stack-protector}"
     # EXTRA_* flags are passed to the build system
     export EXTRA_CFLAGS="$CFLAGS"
     export EXTRA_CXXFLAGS="$CXXFLAGS"
@@ -46,7 +49,7 @@ build      : |
     # setting `version` (any case) clobbers the msbuild version target
     unset CFLAGS CXXFLAGS LDFLAGS version
     ./prep.sh
-    ./build.sh --clean-while-building --online --release-manifest $pkgfiles/release.json --with-sdk $PWD/.dotnet
+    ./build.sh --clean-while-building --release-manifest $pkgfiles/release.json --with-sdk $PWD/.dotnet
 install    : |
     # required bootstrap artifacts
     install -Dm00644 artifacts/x64/Release/Private.SourceBuilt.Artifacts.*.tar.gz -t $installdir/usr/share/dotnet/source-built-artifacts/
@@ -66,7 +69,7 @@ install    : |
     # completions
     install -Dm00644 src/sdk/scripts/register-completions.bash $installdir/usr/share/bash-completion/completions/dotnet
     install -Dm00644 src/sdk/scripts/register-completions.zsh $installdir/usr/share/zsh/site-functions/_dotnet
-    # install -Dm00644 src/sdk/scripts/register-completions.ps1 $installdir/usr/local/share/powershell/Modules
+    # install -Dm00644 src/sdk/scripts/register-completions.ps1 $installdir/usr/share/powershell/Modules
 patterns   :
     - sdk :
         - /usr/lib/dotnet/metadata
