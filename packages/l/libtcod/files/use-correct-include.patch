@@ -1,0 +1,143 @@
+diff --git a/src/libtcod/console_init.c b/src/libtcod/console_init.c
+index 3df46faf..00ee0500 100644
+--- a/src/libtcod/console_init.c
++++ b/src/libtcod/console_init.c
+@@ -32,7 +32,7 @@
+ #include "console_init.h"
+ 
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #endif  // NO_SDL
+ #include <stdbool.h>
+ #include <string.h>
+diff --git a/src/libtcod/context_init.c b/src/libtcod/context_init.c
+index 3234113b..a1755d31 100644
+--- a/src/libtcod/context_init.c
++++ b/src/libtcod/context_init.c
+@@ -31,7 +31,7 @@
+  */
+ #include "context_init.h"
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+diff --git a/src/libtcod/image_c.c b/src/libtcod/image_c.c
+index 80d9048e..397a11f0 100644
+--- a/src/libtcod/image_c.c
++++ b/src/libtcod/image_c.c
+@@ -30,7 +30,7 @@
+  * POSSIBILITY OF SUCH DAMAGE.
+  */
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #endif  // NO_SDL
+ #include <math.h>
+ #include <stdarg.h>
+diff --git a/src/libtcod/renderer_sdl2.c b/src/libtcod/renderer_sdl2.c
+index 28263279..4ab0acd8 100644
+--- a/src/libtcod/renderer_sdl2.c
++++ b/src/libtcod/renderer_sdl2.c
+@@ -31,7 +31,7 @@
+  */
+ #include "renderer_sdl2.h"
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #include <math.h>
+ #include <stdbool.h>
+ #include <stdio.h>
+diff --git a/src/libtcod/renderer_xterm.c b/src/libtcod/renderer_xterm.c
+index 673326da..efc389a5 100644
+--- a/src/libtcod/renderer_xterm.c
++++ b/src/libtcod/renderer_xterm.c
+@@ -31,7 +31,7 @@
+  */
+ #include "renderer_xterm.h"
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #include <limits.h>
+ #include <locale.h>
+ #include <signal.h>
+diff --git a/src/libtcod/sdl2/event.cpp b/src/libtcod/sdl2/event.cpp
+index e5a00a3d..92c183e4 100644
+--- a/src/libtcod/sdl2/event.cpp
++++ b/src/libtcod/sdl2/event.cpp
+@@ -31,7 +31,7 @@
+  */
+ #include "event.h"
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ 
+ #include <cstring>
+ 
+diff --git a/src/libtcod/sys_c.c b/src/libtcod/sys_c.c
+index 6fe32985..afe90e6a 100644
+--- a/src/libtcod/sys_c.c
++++ b/src/libtcod/sys_c.c
+@@ -30,7 +30,7 @@
+  * POSSIBILITY OF SUCH DAMAGE.
+  */
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #endif  // NO_SDL
+ #include <ctype.h>
+ #include <stdarg.h>
+diff --git a/src/libtcod/sys_sdl_c.c b/src/libtcod/sys_sdl_c.c
+index d72a53ba..0d2a5481 100644
+--- a/src/libtcod/sys_sdl_c.c
++++ b/src/libtcod/sys_sdl_c.c
+@@ -30,7 +30,7 @@
+  * POSSIBILITY OF SUCH DAMAGE.
+  */
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #endif  // NO_SDL
+ #include <ctype.h>
+ #include <stdio.h>
+diff --git a/src/libtcod/sys_sdl_img_bmp.c b/src/libtcod/sys_sdl_img_bmp.c
+index 8d2ed5ab..3163c7b7 100644
+--- a/src/libtcod/sys_sdl_img_bmp.c
++++ b/src/libtcod/sys_sdl_img_bmp.c
+@@ -30,7 +30,7 @@
+  * POSSIBILITY OF SUCH DAMAGE.
+  */
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ 
+ #include "error.h"
+ #include "libtcod_int.h"
+diff --git a/src/libtcod/sys_sdl_img_png.c b/src/libtcod/sys_sdl_img_png.c
+index 08d9c0bd..56efb312 100644
+--- a/src/libtcod/sys_sdl_img_png.c
++++ b/src/libtcod/sys_sdl_img_png.c
+@@ -37,7 +37,7 @@
+ #include <stdlib.h>
+ #endif
+ 
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #include <lodepng.h>
+ 
+ #include "error.h"
+diff --git a/src/libtcod/tileset_render.c b/src/libtcod/tileset_render.c
+index 12c2c7bf..1ebc29ee 100644
+--- a/src/libtcod/tileset_render.c
++++ b/src/libtcod/tileset_render.c
+@@ -32,7 +32,7 @@
+ #include "tileset_render.h"
+ 
+ #ifndef NO_SDL
+-#include <SDL.h>
++#include <SDL2/SDL.h>
+ #endif  // NO_SDL
+ /**
+     Render a single tile.
