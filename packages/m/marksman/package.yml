@@ -1,6 +1,6 @@
 name       : marksman
 version    : 2024.12.18
-release    : 3
+release    : 4
 source     :
     - git|https://github.com/artempyanykh/marksman.git : 2024-12-18
 homepage   : https://github.com/artempyanykh/marksman
@@ -14,8 +14,8 @@ builddeps  :
     - dotnet-8-sdk
     - git
 strip      : false
+debug      : false
 build      : |
     %make publish
 install    : |
     %make_install PREFIX=$installdir/usr
-
